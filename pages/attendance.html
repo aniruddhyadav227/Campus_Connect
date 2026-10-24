@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance | CampusConnect</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/attendance.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  <a class="brand" href="../index.html"><span class="brand-icon">C</span> CampusConnect</a>
+  <div class="topbar-right"><span id="headerDate"></span><a class="avatar" href="profile.html" id="headerAvatar">S</a></div>
+</header>
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar">
+    <p class="side-label">WORKSPACE</p>
+    <a class="nav-link" href="../index.html">▦ <span>Dashboard</span></a>
+    <a class="nav-link" href="attendance.html">◷ <span>Attendance</span></a>
+    <a class="nav-link" href="timetable.html">▦ <span>Timetable</span></a>
+    <a class="nav-link" href="planner.html">✓ <span>Study Planner</span></a>
+    <a class="nav-link" href="resources.html">▤ <span>Resources</span></a>
+    <a class="nav-link" href="profile.html">♙ <span>My Profile</span></a>
+    <div class="sidebar-bottom"><div class="mini-profile"><div class="avatar">S</div><div><strong id="sideName">Student</strong><small>Student Account</small></div></div><p class="demo-note">CampusConnect Demo v1.0</p></div>
+  </aside>
+  <main class="main-content">
+    <section class="page-heading">
+      <p class="eyebrow">ACADEMIC TRACKER</p>
+      <h1>Attendance Manager</h1>
+      <p>Review and update your sample subject-wise attendance.</p>
+    </section>
+
+    <section class="attendance-summary">
+      <article class="panel"><p>Overall Attendance</p><h2 id="overallPercent">0%</h2></article>
+      <article class="panel"><p>Classes Attended</p><h2 id="attendedCount">0</h2></article>
+      <article class="panel"><p>Total Classes</p><h2 id="totalCount">0</h2></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><div><p class="eyebrow">SUBJECT RECORDS</p><h2>Attendance Details</h2></div><span class="pill">Editable demo</span></div>
+      <form id="attendanceForm">
+        <div class="form-row">
+          <div class="form-group"><label for="subject">Subject</label><input id="subject" required maxlength="60" placeholder="e.g. Mathematics"></div>
+          <div class="form-group"><label for="attended">Classes attended</label><input id="attended" type="number" min="0" step="1" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="total">Total classes</label><input id="total" type="number" min="1" step="1" required></div>
+          <div class="form-group"><label>&nbsp;</label><button class="button primary" type="submit">Save subject</button></div>
+        </div>
+        <p class="form-message" id="attendanceMessage" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel" style="margin-top:20px">
+      <div class="panel-heading"><h2>Subject-wise Report</h2></div>
+      <div class="table-wrap"><table><thead><tr><th>Subject</th><th>Attended</th><th>Total</th><th>Percentage</th><th>Status</th><th>Action</th></tr></thead><tbody id="attendanceRows"></tbody></table></div>
+      <p class="empty-state" id="attendanceEmpty" hidden>No subjects recorded yet.</p>
+    </section>
+    <footer class="footer">CampusConnect · Sample attendance only</footer>
+  </main>
+</div>
+<script src="../js/storage.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/attendance.js"></script>
+</body>
+</html>

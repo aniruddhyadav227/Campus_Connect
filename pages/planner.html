@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Planner | CampusConnect</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/planner.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  <a class="brand" href="../index.html"><span class="brand-icon">C</span> CampusConnect</a>
+  <div class="topbar-right"><span id="headerDate"></span><a class="avatar" href="profile.html" id="headerAvatar">S</a></div>
+</header>
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar">
+    <p class="side-label">WORKSPACE</p>
+    <a class="nav-link" href="../index.html">▦ <span>Dashboard</span></a>
+    <a class="nav-link" href="attendance.html">◷ <span>Attendance</span></a>
+    <a class="nav-link" href="timetable.html">▦ <span>Timetable</span></a>
+    <a class="nav-link" href="planner.html">✓ <span>Study Planner</span></a>
+    <a class="nav-link" href="resources.html">▤ <span>Resources</span></a>
+    <a class="nav-link" href="profile.html">♙ <span>My Profile</span></a>
+    <div class="sidebar-bottom"><div class="mini-profile"><div class="avatar">S</div><div><strong id="sideName">Student</strong><small>Student Account</small></div></div><p class="demo-note">CampusConnect Demo v1.0</p></div>
+  </aside>
+  <main class="main-content">
+    <section class="page-heading"><p class="eyebrow">LEARN WITH PURPOSE</p><h1>Study Planner</h1><p>Organize assignments, revision and daily goals.</p></section>
+    <section class="planner-layout">
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">NEW TASK</p><h2>Add a study task</h2></div></div>
+        <form id="taskForm">
+          <div class="form-group"><label for="taskTitle">Task title</label><input id="taskTitle" maxlength="100" required placeholder="e.g. Practise arrays in C++"></div>
+          <div class="form-group"><label for="taskSubject">Subject</label><select id="taskSubject"><option>Programming</option><option>Mathematics</option><option>Physics</option><option>English</option><option>Computer Fundamentals</option><option>Other</option></select></div>
+          <div class="form-group"><label for="taskDue">Due date (optional)</label><input id="taskDue" type="date"></div>
+          <button class="button primary" type="submit">+ Add Task</button>
+          <p class="form-message" id="taskMessage" role="status"></p>
+        </form>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">YOUR PROGRESS</p><h2>My Tasks</h2></div><span class="pill" id="taskCount">0 tasks</span></div>
+        <div class="planner-filters">
+          <select id="taskFilter" aria-label="Filter tasks"><option value="all">All tasks</option><option value="pending">Pending</option><option value="done">Completed</option></select>
+          <select id="subjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option><option>Programming</option><option>Mathematics</option><option>Physics</option><option>English</option><option>Computer Fundamentals</option><option>Other</option></select>
+        </div>
+        <div class="task-list" id="taskList"></div>
+        <p class="empty-state" id="taskEmpty" hidden>No tasks found. Add a task to get started.</p>
+      </article>
+    </section>
+    <footer class="footer">CampusConnect · Your study data is saved in this browser.</footer>
+  </main>
+</div>
+<script src="../js/storage.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/planner.js"></script>
+</body>
+</html>

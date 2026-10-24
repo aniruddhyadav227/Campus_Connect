@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect | Resources</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <style>
+    .resources-page {
+      padding: 24px;
+    }
+
+    .resources-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .resources-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .resource-search {
+      width: 100%;
+      max-width: 420px;
+      padding: 12px 14px;
+      border: 1px solid #d8deea;
+      border-radius: 10px;
+      margin: 12px 0 22px;
+      font-size: 15px;
+    }
+
+    .resource-form {
+      background: var(--card, #ffffff);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid #e1e6ef;
+      margin-bottom: 24px;
+    }
+
+    .resource-form h2 {
+      margin-bottom: 16px;
+    }
+
+    .resource-form input,
+    .resource-form textarea,
+    .resource-form select {
+      width: 100%;
+      padding: 11px;
+      margin: 7px 0 14px;
+      border: 1px solid #d8deea;
+      border-radius: 8px;
+      font: inherit;
+      box-sizing: border-box;
+    }
+
+    .resource-form button {
+      padding: 11px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #405de6;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .resource-card {
+      padding: 20px;
+      border: 1px solid #e1e6ef;
+      border-radius: 14px;
+      background: var(--card, #ffffff);
+      overflow-wrap: anywhere;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 10px;
+    }
+
+    .resource-card p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .resource-card a {
+      color: #405de6;
+      font-weight: 600;
+    }
+
+    .resource-card .delete-resource {
+      margin-top: 14px;
+      padding: 8px 12px;
+      background: #fff0f0;
+      color: #c62828;
+      border: 1px solid #ffd6d6;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .empty-message {
+      color: #777;
+      padding: 18px 0;
+    }
+
+    @media (max-width: 600px) {
+      .resources-page {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="brand-icon">C</span>
+      CampusConnect
+    </a>
+
+    <div class="topbar-right">
+      <span id="headerDate"></span>
+      <a class="avatar" href="profile.html" id="headerAvatar">S</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <p class="side-label">WORKSPACE</p>
+
+      <a class="nav-link" href="../index.html">▦ <span>Dashboard</span></a>
+      <a class="nav-link" href="attendance.html">◷ <span>Attendance</span></a>
+      <a class="nav-link" href="timetable.html">▦ <span>Timetable</span></a>
+      <a class="nav-link" href="planner.html">✓ <span>Study Planner</span></a>
+      <a class="nav-link active" href="resources.html">▤ <span>Resources</span></a>
+      <a class="nav-link" href="profile.html">♙ <span>My Profile</span></a>
+
+      <div class="sidebar-bottom">
+        <div class="mini-profile">
+          <div class="avatar">S</div>
+          <div>
+            <strong id="sideName">Student</strong>
+            <small>Student Account</small>
+          </div>
+        </div>
+        <p class="demo-note">CampusConnect Demo v1.0</p>
+      </div>
+    </aside>
+
+    <main class="main-content resources-page">
+      <section class="resources-header">
+        <div>
+          <p class="side-label">STUDENT WORKSPACE</p>
+          <h1>Study Resources 📚</h1>
+          <p>Save and organize your useful learning links.</p>
+        </div>
+      </section>
+
+      <section class="resource-form">
+        <h2>Add a Resource</h2>
+
+        <form id="resourceForm">
+          <label for="resourceTitle">Resource title</label>
+          <input
+            type="text"
+            id="resourceTitle"
+            placeholder="e.g. C++ Programming Tutorial"
+            required
+          >
+
+          <label for="resourceSubject">Subject</label>
+          <input
+            type="text"
+            id="resourceSubject"
+            placeholder="e.g. Programming"
+            required
+          >
+
+          <label for="resourceUrl">Website URL</label>
+          <input
+            type="url"
+            id="resourceUrl"
+            placeholder="https://example.com"
+            required
+          >
+
+          <label for="resourceMessage">Notes (optional)</label>
+          <textarea
+            id="resourceMessage"
+            rows="3"
+            placeholder="What is this resource useful for?"
+          ></textarea>
+
+          <button type="submit">+ Save Resource</button>
+          <p id="resourceMessageStatus" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>My Resources</h2>
+
+        <input
+          type="search"
+          id="resourceSearch"
+          class="resource-search"
+          placeholder="Search by title or subject..."
+          aria-label="Search resources"
+        >
+
+        <div id="resourceGrid" class="resource-grid"></div>
+        <p id="resourceEmpty" class="empty-message" hidden>
+          No resources found. Add a resource above to get started.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/resources.js"></script>
+</body>
+</html>

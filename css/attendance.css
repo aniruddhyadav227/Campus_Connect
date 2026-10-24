@@ -1,0 +1,6 @@
+.attendance-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 22px; }
+.attendance-summary .panel h2 { font-size: 26px; margin-top: 12px; color: var(--primary); }
+.attendance-summary p { color: var(--muted); font-size: 12px; }
+.attendance-layout { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.attendance-controls { display: flex; gap: 10px; margin-bottom: 16px; }
+.attendance-controls select { max-width: 250px; }

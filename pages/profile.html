@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect | My Profile</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <style>
+    .profile-page {
+      padding: 24px;
+    }
+
+    .profile-heading {
+      margin-bottom: 24px;
+    }
+
+    .profile-card {
+      max-width: 760px;
+      padding: 24px;
+      border: 1px solid #e1e6ef;
+      border-radius: 16px;
+      background: var(--card, #fff);
+    }
+
+    .profile-avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #405de6;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .profile-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .profile-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .profile-field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .profile-field label {
+      font-weight: 600;
+    }
+
+    .profile-field input,
+    .profile-field select,
+    .profile-field textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d8deea;
+      border-radius: 8px;
+      font: inherit;
+      box-sizing: border-box;
+    }
+
+    .profile-actions {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .save-button {
+      padding: 12px 20px;
+      background: #405de6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .profile-status {
+      margin-top: 14px;
+      color: #187647;
+    }
+
+    @media (max-width: 600px) {
+      .profile-page {
+        padding: 14px;
+      }
+
+      .profile-form {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-field.full-width {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="brand-icon">C</span>
+      CampusConnect
+    </a>
+
+    <div class="topbar-right">
+      <span id="headerDate"></span>
+      <a class="avatar" href="profile.html" id="headerAvatar">S</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <p class="side-label">WORKSPACE</p>
+
+      <a class="nav-link" href="../index.html">▦ <span>Dashboard</span></a>
+      <a class="nav-link" href="attendance.html">◷ <span>Attendance</span></a>
+      <a class="nav-link" href="timetable.html">▦ <span>Timetable</span></a>
+      <a class="nav-link" href="planner.html">✓ <span>Study Planner</span></a>
+      <a class="nav-link" href="resources.html">▤ <span>Resources</span></a>
+      <a class="nav-link active" href="profile.html">♙ <span>My Profile</span></a>
+
+      <div class="sidebar-bottom">
+        <div class="mini-profile">
+          <div class="avatar">S</div>
+          <div>
+            <strong id="sideName">Student</strong>
+            <small>Student Account</small>
+          </div>
+        </div>
+        <p class="demo-note">CampusConnect Demo v1.0</p>
+      </div>
+    </aside>
+
+    <main class="main-content profile-page">
+      <section class="profile-heading">
+        <p class="side-label">STUDENT WORKSPACE</p>
+        <h1>My Profile 👤</h1>
+        <p>View and update your student information.</p>
+      </section>
+
+      <section class="profile-card">
+        <div class="profile-avatar" id="profileAvatar">S</div>
+        <h2 id="profileDisplayName">Student</h2>
+        <p>Student Account</p>
+
+        <form id="profileForm">
+          <div class="profile-form">
+            <div class="profile-field">
+              <label for="profileName">Full Name *</label>
+              <input
+                type="text"
+                id="profileName"
+                name="name"
+                placeholder="Enter your name"
+                required
+              >
+            </div>
+
+            <div class="profile-field">
+              <label for="profileEmail">Email Address</label>
+              <input
+                type="email"
+                id="profileEmail"
+                name="email"
+                placeholder="Enter your email"
+              >
+            </div>
+
+            <div class="profile-field">
+              <label for="profileCourse">Course</label>
+              <input
+                type="text"
+                id="profileCourse"
+                name="course"
+                placeholder="e.g. BTech CSE"
+              >
+            </div>
+
+            <div class="profile-field">
+              <label for="profileYear">Academic Year</label>
+              <select id="profileYear" name="year">
+                <option value="">Select year</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+
+            <div class="profile-field">
+              <label for="profileCollege">College Name</label>
+              <input
+                type="text"
+                id="profileCollege"
+                name="college"
+                placeholder="Enter your college name"
+              >
+            </div>
+
+            <div class="profile-field">
+              <label for="profileRoll">Roll Number</label>
+              <input
+                type="text"
+                id="profileRoll"
+                name="rollNumber"
+                placeholder="Enter your roll number"
+              >
+            </div>
+
+            <div class="profile-field full-width">
+              <label for="profileBio">About Me</label>
+              <textarea
+                id="profileBio"
+                name="bio"
+                rows="4"
+                placeholder="Write a short introduction..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <button class="save-button" type="submit">Save Profile</button>
+            <button type="button" id="resetProfile">Reset Form</button>
+          </div>
+
+          <p class="profile-status" id="profileStatus" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

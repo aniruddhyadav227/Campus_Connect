@@ -1,0 +1,34 @@
+{
+  "project": "CampusConnect",
+  "version": "1.0.0",
+  "subjects": [
+    {
+      "name": "Mathematics",
+      "attended": 24,
+      "total": 30
+    },
+    {
+      "name": "Programming",
+      "attended": 27,
+      "total": 30
+    },
+    {
+      "name": "Physics",
+      "attended": 20,
+      "total": 28
+    }
+  ],
+  "sampleTasks": [
+    {
+      "title": "Revise C++ basics",
+      "subject": "Programming",
+      "completed": false
+    },
+    {
+      "title": "Complete Maths practice",
+      "subject": "Mathematics",
+      "completed": false
+    }
+  ],
+  "note": "All records are sample data for a student portal demonstration."
+}

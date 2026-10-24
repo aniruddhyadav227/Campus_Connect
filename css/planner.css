@@ -1,0 +1,13 @@
+.planner-layout { display: grid; grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr); gap: 20px; align-items: start; }
+.task-list { display: grid; gap: 10px; }
+.task-card { display: flex; align-items: flex-start; gap: 12px; padding: 15px; border: 1px solid var(--border); border-radius: 12px; }
+.task-card input { width: 17px; height: 17px; margin-top: 3px; accent-color: var(--primary); }
+.task-content { flex: 1; min-width: 0; }
+.task-content h3 { overflow-wrap: anywhere; }
+.task-content p { color: var(--muted); font-size: 11px; margin-top: 5px; }
+.task-card.completed h3 { color: var(--muted); text-decoration: line-through; }
+.task-actions { display: flex; gap: 7px; }
+.icon-button { padding: 5px 8px; background: #f5f5fa; border: 0; border-radius: 6px; color: var(--muted); }
+.icon-button:hover { color: var(--red); }
+.planner-filters { display: flex; gap: 8px; margin-bottom: 15px; }
+.planner-filters select { max-width: 180px; }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusConnect student college portal demo">
+  <title>CampusConnect | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <a class="brand" href="index.html"><span class="brand-icon">C</span> CampusConnect</a>
+    <div class="topbar-right">
+      <span id="headerDate"></span>
+      <a class="avatar" href="pages/profile.html" id="headerAvatar">S</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <p class="side-label">WORKSPACE</p>
+      <a class="nav-link active" href="index.html">▦ <span>Dashboard</span></a>
+      <a class="nav-link" href="pages/attendance.html">◷ <span>Attendance</span></a>
+      <a class="nav-link" href="pages/timetable.html">▦ <span>Timetable</span></a>
+      <a class="nav-link" href="pages/planner.html">✓ <span>Study Planner</span></a>
+      <a class="nav-link" href="pages/resources.html">▤ <span>Resources</span></a>
+      <a class="nav-link" href="pages/profile.html">♙ <span>My Profile</span></a>
+      <div class="sidebar-bottom">
+        <div class="mini-profile">
+          <div class="avatar">S</div>
+          <div><strong id="sideName">Student</strong><small>Student Account</small></div>
+        </div>
+        <p class="demo-note">CampusConnect Demo v1.0</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">STUDENT WORKSPACE</p>
+          <h1>Welcome back, <span id="welcomeName">Student</span>! 👋</h1>
+          <p class="muted">Here's what's happening on your campus today.</p>
+        </div>
+        <a class="button primary" href="pages/planner.html">+ Add a task</a>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card purple">
+          <div class="stat-top"><span>Attendance</span><span>◷</span></div>
+          <h2 id="dashAttendance">75%</h2>
+          <p>Overall attendance</p>
+        </article>
+        <article class="stat-card green">
+          <div class="stat-top"><span>Tasks pending</span><span>✓</span></div>
+          <h2 id="dashTasks">0</h2>
+          <p>Tasks left to complete</p>
+        </article>
+        <article class="stat-card orange">
+          <div class="stat-top"><span>Study resources</span><span>▤</span></div>
+          <h2 id="dashResources">6</h2>
+          <p>Useful learning links</p>
+        </article>
+        <article class="stat-card blue">
+          <div class="stat-top"><span>Upcoming classes</span><span>▦</span></div>
+          <h2 id="dashClasses">4</h2>
+          <p>Sample daily schedule</p>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">YOUR DAY</p><h2>Today's Timetable</h2></div>
+            <a class="small-link" href="pages/timetable.html">View all →</a>
+          </div>
+          <div id="todayClasses" class="class-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">STAY ON TRACK</p><h2>Study Planner</h2></div>
+            <a class="small-link" href="pages/planner.html">View all →</a>
+          </div>
+          <div id="dashboardTasks" class="task-preview"></div>
+          <a class="button secondary full-button" href="pages/planner.html">Manage tasks</a>
+        </article>
+      </section>
+
+      <section class="panel announcements">
+        <div class="panel-heading">
+          <div><p class="eyebrow">CAMPUS UPDATES</p><h2>Announcements</h2></div>
+          <span class="pill">Demo content</span>
+        </div>
+        <div class="announcement-list">
+          <div class="announcement-icon">📢</div>
+          <div><h3>Welcome to CampusConnect</h3><p>Use your dashboard to organize classes, tasks and study resources.</p></div>
+        </div>
+        <div class="announcement-list">
+          <div class="announcement-icon">📚</div>
+          <div><h3>Keep your study plan updated</h3><p>Add assignments and mark them complete as you progress.</p></div>
+        </div>
+      </section>
+
+      <footer class="footer">CampusConnect © 2026 · Student portal demonstration project</footer>
+    </main>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
